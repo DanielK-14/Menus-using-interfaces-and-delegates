@@ -19,9 +19,9 @@ namespace Ex04.Menus.Delegates
         public Menu(string i_Title, int i_Level, Menu i_PreviousMenu) : base(i_Title)
         {
             m_Level = i_Level;
-            setOptionExitBack(m_Level);
-            m_NextEmptyOptionNumber = 0;
-            m_PreviousMenu = i_PreviousMenu;
+            m_PreviousMenu = i_PreviousMenu; /// change to here instead line 24 because the m_PreviousMenu was null!
+            setOptionExitBack(m_Level); /// and then func setOptionExitBack was wrong values
+            m_NextEmptyOptionNumber = 1; /// change to 1 instead 0 because there was already KEY 0 taken
             setHeaderAndFooter(i_Title);
         }
 
@@ -75,9 +75,13 @@ namespace Ex04.Menus.Delegates
             Console.WriteLine(m_Header);
             Console.WriteLine("Current Level is : {0}", m_Level);
             Console.WriteLine("(0) {0}", m_ZeroPosition);
-            foreach (int option in m_MenuOptions.Keys)
+            //foreach (int option in m_MenuOptions.Keys) /// foreach include 0 place that make bug
+            //{
+            //    Console.WriteLine("({0}) {1}", option, m_MenuOptions[option].Title);
+            //}
+            for (int i = 1; i < m_MenuOptions.Count; i++)
             {
-                Console.WriteLine("({0}) {1}", option, m_MenuOptions[option].Title);
+                Console.WriteLine("({0}) {1}", i, m_MenuOptions[i].Title);
             }
 
             Console.WriteLine(m_Footer);
