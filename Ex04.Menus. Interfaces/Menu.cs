@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
@@ -91,6 +90,7 @@ namespace Ex04.Menus.Interfaces
             do
             {
                 optionNumber = pickOption();
+                Console.Clear();
                 if(optionNumber != 0)
                 {
                     if(m_MenuOptions[optionNumber] is Menu)
@@ -135,7 +135,7 @@ namespace Ex04.Menus.Interfaces
                     printMenuOptions();
                     Console.Write("Please pick an option number: ");
                     option = Console.ReadLine();
-                    optionNumber = convertOptionToInt(option);
+                    optionNumber = convertOptiorrnToIntAndCheckValidation(option);
                     valid = true;
                 }
                 catch (Exception ex)
@@ -150,7 +150,7 @@ namespace Ex04.Menus.Interfaces
             return optionNumber;
         }
 
-        private int convertOptionToInt(string i_Option)
+        private int convertOptiorrnToIntAndCheckValidation(string i_Option)
         { 
             if(i_Option == string.Empty || i_Option.StartsWith(" ") == true)
             {
