@@ -1,38 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
     public class Menu : MenuItem
     {
         protected Dictionary<int, MenuItem> m_MenuOptions = new Dictionary<int, MenuItem>();
+        protected Menu m_PreviousMenu;
         protected int m_Level;
         protected int m_NextEmptyOptionNumber;
         protected const string k_Exit = "Exit";
         protected const string k_Back = "Back";
+        protected string m_ZeroPosition;
         protected string m_Header;
         protected string m_Footer;
 
-        public Menu(string i_Title, int i_Level) : base(i_Title)
+        public Menu(string i_Title, int i_Level, Menu i_PreviousMenu) : base(i_Title)
         {
             m_Level = i_Level;
+            setOptionExitBack(m_Level);
             m_NextEmptyOptionNumber = 0;
+            m_PreviousMenu = i_PreviousMenu;
             setHeaderAndFooter(i_Title);
         }
 
         private void setHeaderAndFooter(string i_Title)
         {
-            m_Header = string.Format("X-X-X-X-X-X-X-X- {0} -X-X-X-X-X-X-X-X", i_Title);
-            m_Footer ="X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X";
+            StringBuilder headBuilder = new StringBuilder();
+            headBuilder.Append('#', 12);
+            headBuilder.Append(string.Format(" {0} ", i_Title));
+            headBuilder.Append('#', 12);
+            m_Header = headBuilder.ToString();
+
+            StringBuilder footerBuilder = new StringBuilder();
+            footerBuilder.Append('#', m_Header.Length);
+            m_Footer = footerBuilder.ToString();
         }
 
         public int Level
         {
             get { return m_Level; }
-            set
+            set 
             {
-                m_Level = value;
-                setOptionExitBack(value);
+                if(value < 0)
+                {
+                    throw new ArgumentOutOfRangeException("Value entered not in valid range of levels ,must be bigger than 0.");
+                }
+
+                setOptionExitBack(m_Level);
+                m_Level = value; 
             }
         }
 
@@ -40,23 +57,13 @@ namespace Ex04.Menus.Interfaces
         {
             if (i_Level == 0)
             {
-                setZeroOption(k_Exit);
+                m_MenuOptions.Add(0, null);
+                m_ZeroPosition = k_Exit;
             }
             else
             {
-                setZeroOption(k_Back);
-            }
-        }
-
-        private void setZeroOption(string i_ZeroTitle)
-        {
-            if (m_MenuOptions.ContainsKey(0) == true)
-            {
-                m_MenuOptions[0].Title = i_ZeroTitle;
-            }
-            else
-            {
-                m_MenuOptions.Add(0, new MenuItem(i_ZeroTitle));
+                m_MenuOptions.Add(0, m_PreviousMenu);
+                m_ZeroPosition = k_Back;
             }
         }
 

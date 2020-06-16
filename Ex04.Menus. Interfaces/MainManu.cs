@@ -2,6 +2,6 @@
 {
     public class MainMenu : Menu
     {
-        public MainMenu(string i_Title) : base(i_Title, 0) { }
+        public MainMenu(string i_Title) : base(i_Title, 0, null) { }
     }
 }

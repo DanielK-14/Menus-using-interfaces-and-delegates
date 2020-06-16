@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DelegatesMenu.cs" />
-    <Compile Include="InterfacesMenu.cs" />
+    <Compile Include="DelegatesTest\DelegatesMenu.cs" />
+    <Compile Include="InterfacesTest\CountCapitalsMenuItem.cs" />
+    <Compile Include="InterfacesTest\InterfacesMenu.cs" />
+    <Compile Include="InterfacesTest\ShowDateMenuItem.cs" />
+    <Compile Include="InterfacesTest\ShowTimeMenuItem.cs" />
+    <Compile Include="InterfacesTest\ShowVersionMenuItem.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
