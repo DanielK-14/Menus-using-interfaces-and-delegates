@@ -3,9 +3,9 @@ using Ex04.Menus.Test.InterfacesTest;
 
 namespace Ex04.Menus.Test
 {
-    class InterfacesMenu
+    public class InterfacesMenu
     {
-        MainMenu mainMenu;
+        private MainMenu mainMenu;
 
         public InterfacesMenu()
         {
@@ -14,7 +14,7 @@ namespace Ex04.Menus.Test
             ShowTimeMenuItem showTime = new ShowTimeMenuItem();
             ShowDateMenuItem showDate = new ShowDateMenuItem();
 
-            mainMenu = new MainMenu("Main Menu");
+            mainMenu = new MainMenu("Main Menu - Interfaces");
             Menu versionAndDigits = new Menu("Version and Digits", 1, mainMenu);
             Menu showDateAndTime = new Menu("Show Date/Time", 1, mainMenu);
 

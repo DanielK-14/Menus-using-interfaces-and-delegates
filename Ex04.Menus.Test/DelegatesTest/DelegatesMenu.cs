@@ -21,7 +21,7 @@ namespace Ex04.Menus.Test
             ActionMenuItem showDate = new ActionMenuItem("Show Date");
             showDate.PickedMenuItem += showDate_Picked;
 
-            mainMenu = new MainMenu("Main Menu");
+            mainMenu = new MainMenu("Main Menu - Delegates");
             Menu versionAndDigits = new Menu("Version and Digits", 1, mainMenu);
             Menu showDateAndTime = new Menu("Show Date/Time", 1, mainMenu);
 
@@ -38,7 +38,7 @@ namespace Ex04.Menus.Test
         {
             string word = getWordFromUser();
             int capitalLettersAmount = calculateCapitals(word);
-            Console.WriteLine("The word {0} has {1} capital letters.", word, capitalLettersAmount);
+            Console.WriteLine("The sentence " + '"' + "{0}" + '"' + " has {1} capital letters.", word, capitalLettersAmount);
         }
 
         private int calculateCapitals(string word)

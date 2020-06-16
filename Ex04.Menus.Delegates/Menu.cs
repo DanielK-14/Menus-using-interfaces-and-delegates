@@ -27,8 +27,15 @@ namespace Ex04.Menus.Delegates
 
         private void setHeaderAndFooter(string i_Title)
         {
-            m_Header = string.Format("X-X-X-X-X-X-X-X- {0} -X-X-X-X-X-X-X-X", i_Title);
-            m_Footer = "X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X-X";
+            StringBuilder headBuilder = new StringBuilder();
+            headBuilder.Append('#', 12);
+            headBuilder.Append(string.Format(" {0} ", i_Title));
+            headBuilder.Append('#', 12);
+            m_Header = headBuilder.ToString();
+
+            StringBuilder footerBuilder = new StringBuilder();
+            footerBuilder.Append('#', m_Header.Length);
+            m_Footer = footerBuilder.ToString();
         }
 
         public int Level
@@ -75,10 +82,7 @@ namespace Ex04.Menus.Delegates
             Console.WriteLine(m_Header);
             Console.WriteLine("Current Level is : {0}", m_Level);
             Console.WriteLine("(0) {0}", m_ZeroPosition);
-            //foreach (int option in m_MenuOptions.Keys) /// foreach include 0 place that make bug
-            //{
-            //    Console.WriteLine("({0}) {1}", option, m_MenuOptions[option].Title);
-            //}
+
             for (int i = 1; i < m_MenuOptions.Count; i++)
             {
                 Console.WriteLine("({0}) {1}", i, m_MenuOptions[i].Title);
@@ -101,26 +105,11 @@ namespace Ex04.Menus.Delegates
                 }
             }
             while (optionNumber != 0);
-
-            doExitOrBackOperation();
-        }
-
-        private void doExitOrBackOperation()
-        {
-            if (m_Level == 0)
-            {
-                Console.Clear();
-                Console.WriteLine("Exiting the program...");
-                Environment.Exit(0);
-            }
-            else
-            {
-                (m_MenuOptions[0] as Menu).Show();
-            }
         }
 
         public int pickOption()
         {
+            Console.Clear();
             bool valid;
             int optionNumber = 0;
             string option;

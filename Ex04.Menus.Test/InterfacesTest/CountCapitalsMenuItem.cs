@@ -11,7 +11,7 @@ namespace Ex04.Menus.Test.InterfacesTest
         {
             string word = getWordFromUser();
             int capitalLettersAmount = calculateCapitals(word);
-            Console.WriteLine("The word {0} has {1} capital letters.", word, capitalLettersAmount);
+            Console.WriteLine("The sentence " + '"' + "{0}" + '"' + " has {1} capital letters.", word, capitalLettersAmount);
         }
 
         private int calculateCapitals(string word)

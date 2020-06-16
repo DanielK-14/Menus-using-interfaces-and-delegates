@@ -18,6 +18,7 @@ namespace Ex04.Menus.Delegates
             {
                 PickedMenuItem.Invoke();
             }
+            System.Threading.Thread.Sleep(2000);
         }
 
         public override void Action()
