@@ -3,9 +3,11 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test.InterfacesTest
 {
-    class CountCapitalsMenuItem : MenuItem, IExecutable
+    public class CountCapitalsMenuItem : MenuItem, IExecutable
     {
-        public CountCapitalsMenuItem() : base("Count Capitals") { }
+        public CountCapitalsMenuItem() : base("Count Capitals")
+        {
+        }
 
         void IExecutable.Execute()
         {

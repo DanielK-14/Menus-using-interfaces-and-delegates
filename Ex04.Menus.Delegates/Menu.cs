@@ -6,12 +6,12 @@ namespace Ex04.Menus.Delegates
 {
     public class Menu : MenuItem
     {
+        protected const string k_Exit = "Exit";
+        protected const string k_Back = "Back";
         protected Dictionary<int, MenuItem> m_MenuOptions = new Dictionary<int, MenuItem>();
         protected Menu m_PreviousMenu;
         protected int m_Level;
         protected int m_NextEmptyOptionNumber;
-        protected const string k_Exit = "Exit";
-        protected const string k_Back = "Back";
         protected string m_ZeroPosition;
         protected string m_Header;
         protected string m_Footer;

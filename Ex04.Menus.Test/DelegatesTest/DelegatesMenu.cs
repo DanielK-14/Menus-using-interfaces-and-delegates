@@ -3,9 +3,9 @@ using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
-    class DelegatesMenu
+    public class DelegatesMenu
     {
-        MainMenu mainMenu;
+        public MainMenu MainMenu;
 
         public DelegatesMenu()
         {
@@ -21,17 +21,17 @@ namespace Ex04.Menus.Test
             ActionMenuItem showDate = new ActionMenuItem("Show Date");
             showDate.PickedMenuItem += showDate_Picked;
 
-            mainMenu = new MainMenu("Main Menu - Delegates");
-            Menu versionAndDigits = new Menu("Version and Digits", 1, mainMenu);
-            Menu showDateAndTime = new Menu("Show Date/Time", 1, mainMenu);
+            MainMenu = new MainMenu("Main Menu - Delegates");
+            Menu versionAndDigits = new Menu("Version and Digits", 1, MainMenu);
+            Menu showDateAndTime = new Menu("Show Date/Time", 1, MainMenu);
 
             versionAndDigits.AddOption(countCapital);
             versionAndDigits.AddOption(showVersion);
             showDateAndTime.AddOption(showTime);
             showDateAndTime.AddOption(showDate);
 
-            mainMenu.AddOption(versionAndDigits);
-            mainMenu.AddOption(showDateAndTime);
+            MainMenu.AddOption(versionAndDigits);
+            MainMenu.AddOption(showDateAndTime);
         }
 
         private void countingCapital_Picked()
@@ -81,7 +81,7 @@ namespace Ex04.Menus.Test
 
         public void StartMenu()
         {
-            mainMenu.Show();
+            MainMenu.Show();
         }
     }
 }

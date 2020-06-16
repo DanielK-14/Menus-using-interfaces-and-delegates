@@ -1,11 +1,13 @@
-﻿using Ex04.Menus.Interfaces;
-using System;
+﻿using System;
+using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test.InterfacesTest
 {
-    class ShowTimeMenuItem : MenuItem, IExecutable
+    public class ShowTimeMenuItem : MenuItem, IExecutable
     {
-        public ShowTimeMenuItem() : base("Show Time") { }
+        public ShowTimeMenuItem() : base("Show Time") 
+        {
+        }
 
         void IExecutable.Execute()
         {

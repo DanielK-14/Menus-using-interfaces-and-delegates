@@ -8,7 +8,9 @@ namespace Ex04.Menus.Delegates
 
     public class ActionMenuItem : MenuItem
     {
-        public ActionMenuItem(string i_Title) : base(i_Title) { }
+        public ActionMenuItem(string i_Title) : base(i_Title)
+        {
+        }
 
         public event PickInvoker PickedMenuItem;
 
@@ -18,6 +20,7 @@ namespace Ex04.Menus.Delegates
             {
                 PickedMenuItem.Invoke();
             }
+
             System.Threading.Thread.Sleep(2000);
         }
 

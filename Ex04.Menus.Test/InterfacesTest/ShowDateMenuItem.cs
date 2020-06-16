@@ -3,9 +3,11 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test.InterfacesTest
 {
-    class ShowDateMenuItem :  MenuItem, IExecutable
+    public class ShowDateMenuItem : MenuItem, IExecutable
     {
-        public ShowDateMenuItem() : base("Show Date") { }
+        public ShowDateMenuItem() : base("Show Date") 
+        {
+        }
 
         void IExecutable.Execute()
         {
